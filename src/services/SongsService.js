@@ -9,7 +9,14 @@ class SongsService {
     this._pool = new Pool();
   }
 
-  async addSong({ title, year, performer, genre, duration, albumId }) {
+  async addSong({
+    title,
+    year,
+    performer,
+    genre,
+    duration = null,
+    albumId = null,
+  }) {
     const id = `song-${nanoid(16)}`;
     let columns = ["$1", "$2", "$3", "$4", "$5"];
     let values = [id, title, year, performer, genre];
@@ -75,7 +82,10 @@ class SongsService {
     return result.rows.map(mapSongToModel)[0];
   }
 
-  async editSongById(id, { title, year, genre, performer, duration, albumId }) {
+  async editSongById(
+    id,
+    { title, year, genre, performer, duration = null, albumId = null },
+  ) {
     const updatedAt = new Date().toISOString();
     let columns = ["title = $1", "year = $2", "genre = $3", "performer = $4"];
     let values = [title, year, genre, performer];
