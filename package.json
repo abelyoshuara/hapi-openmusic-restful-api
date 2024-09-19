@@ -1,0 +1,36 @@
+{
+  "name": "openmusic-restful-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "prod": "NODE_ENV=production node ./src/server.js",
+    "start": "nodemon ./src/server.js",
+    "prettier:check": "prettier ./src --check",
+    "prettier:fix": "prettier ./src --write",
+    "lint:check": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "migrate": "node-pg-migrate"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@hapi/hapi": "^21.3.10",
+    "auto-bind": "^4.0.0",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.3",
+    "lodash": "^4.17.21",
+    "nanoid": "^3.3.7",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
+    "node-pg-migrate": "^7.6.1",
+    "nodemon": "^3.1.5",
+    "prettier": "3.3.3"
+  }
+}
