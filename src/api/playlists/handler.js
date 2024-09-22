@@ -28,8 +28,9 @@ class PlaylistsHandler {
     return response;
   }
 
-  async getPlaylistsHandler() {
-    const playlists = await this._playlistsService.getPlaylists();
+  async getPlaylistsHandler(request) {
+    const { id: owner } = request.auth.credentials;
+    const playlists = await this._playlistsService.getPlaylists(owner);
     return {
       status: "success",
       data: {
